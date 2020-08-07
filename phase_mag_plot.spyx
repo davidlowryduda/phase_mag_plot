@@ -65,7 +65,11 @@ cdef inline double cyclic_mag_to_lightness(double r):
     return .5 - (log2(r) % 1)/2. - 0.35
 
 
-def complex_to_rgb(z_values):
+cdef double mag_and_arg_to_lightness(double r, double arg):
+    return 0.15 - (log2(r) % 1)/3. - (5*arg/PI % 1)/3.
+
+
+def complex_to_rgb(z_values, tiled=False):
     """
     INPUT:
 
@@ -116,7 +120,10 @@ def complex_to_rgb(z_values):
             mag = hypot(x, y)
             arg = atan2(y, x) # math module arctan has range from -pi to pi, so cut along negative x-axis
 
-            lightness = cyclic_mag_to_lightness(mag)
+            if tiled:
+                lightness = mag_and_arg_to_lightness(mag, arg)
+            else:
+                lightness = cyclic_mag_to_lightness(mag)
             if lightness < 0: # in hsv, variable value, full saturation (s=1, v=1+lightness)
                 bot = 0
                 top = (1+lightness)
@@ -240,7 +247,7 @@ class ComplexPlot(GraphicPrimitive):
 
 
 @options(plot_points=100, interpolation='catrom')
-def phase_mag_complex_plot(f, x_range, y_range, **options):
+def phase_mag_complex_plot(f, x_range, y_range, tiled=False, **options):
     r"""
     ``phase_mag_complex_plot`` takes a complex function of one variable,
     `f(z)` and plots output of the function over the specified
@@ -400,6 +407,6 @@ def phase_mag_complex_plot(f, x_range, y_range, **options):
 
     g = Graphics()
     g._set_extra_kwds(Graphics._extract_kwds_for_show(options, ignore=['xmin', 'xmax']))
-    g.add_primitive(ComplexPlot(complex_to_rgb(z_values),
+    g.add_primitive(ComplexPlot(complex_to_rgb(z_values, tiled=tiled),
                                 x_range[:2], y_range[:2], options))
     return g

@@ -41,6 +41,16 @@ several plotting points.
 
 ![polynomial function plot with axes](./images/polyplot_without_axis.png)
 
+This also includes a tile-type contour (inspired heavily from the domain
+coloring methods of Elias Wegert) that can be activated by calling
+`tiled=True`. For example,
+
+    g = phase_mag_complex_plot((x-3)*(x+3*i)*x^2, (-5, 5), (-5, 5), tiled=True, plot_points=500)
+    g.axes(show=False)
+    g.show()
+
+![polynomial function with tiled domain](./images/poly_tiled.png)
+
 
 If you encounter any bugs or have any questions, let me know.
 
