@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4035117.svg)](https://doi.org/10.5281/zenodo.4035117)
 
 # phase_mag_plot
 
