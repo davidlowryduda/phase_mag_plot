@@ -62,11 +62,20 @@ cdef inline double cyclic_mag_to_lightness(double r):
     """
     #  if r <= 0.0001:
     #      return (.5 - r / 8.) - 0.35
-    return .5 - (log2(r) % 1)/2. - 0.35
+    rem = log2(r) % 1
+    if rem < 0:
+        rem += 1
+    return .15 - rem/2.
 
 
 cdef double mag_and_arg_to_lightness(double r, double arg):
-    return 0.15 - (log2(r) % 1)/3. - (5*arg/PI % 1)/3.
+    r_rem = log2(r) % 1
+    if r_rem < 0:
+        r_rem += 1
+    a_rem = 5 * arg / PI % 1
+    if a_rem < 0:
+        a_rem += 1
+    return 0.15 - (r_rem)/3. - (a_rem)/3.
 
 
 def complex_to_rgb(z_values, tiled=False):
