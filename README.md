@@ -56,6 +56,17 @@ coloring methods of Elias Wegert) that can be activated by calling
 If you encounter any bugs or have any questions, let me know.
 
 
+# colormapplot
+
+This repository also contains a version of colormapplot. This is a plotting
+routine with similar calling semantics as `phase_mag_complex_plot` and sage's
+default `complex_plot`, but which allows one to use matplotlib compatible
+colormaps to source the colors.
+
+**Note** that this is not currently indexed in the reference Zenodo
+implementation.
+
+
 ## License
 
 This is closely modified from sage itself, and thus it is available under GPLv3.
