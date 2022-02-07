@@ -29,8 +29,6 @@ from cysignals.signals cimport sig_on, sig_off, sig_check
 
 import colorsys
 import numpy as np
-import matplotlib as mpl
-import matplotlib.cm as mplcm
 
 cimport numpy as cnumpy
 
@@ -404,6 +402,7 @@ def color_complex_plot(f, x_range, y_range, tiled=False, cmap=None, **options):
     from sage.plot.misc import setup_for_eval_on_grid
     from sage.ext.fast_callable import fast_callable
     from sage.rings.complex_double import CDF
+    import matplotlib.cm
 
     try:
         f = fast_callable(f, domain=CDF, expect_one_var=True)
@@ -411,7 +410,7 @@ def color_complex_plot(f, x_range, y_range, tiled=False, cmap=None, **options):
         pass
 
     if cmap is None:
-        cmap = mplcm.get_cmap('cividis')
+        cmap = matplotlib.cm.get_cmap('cividis')
 
     cdef double x, y
     _, ranges = setup_for_eval_on_grid([], [x_range, y_range],
