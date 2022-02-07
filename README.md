@@ -66,9 +66,45 @@ colormaps to source the colors.
 **Note** that this is not currently indexed in the reference Zenodo
 implementation.
 
+For example,
+
+    # After loading color_complex_plot
+    g = color_complex_plot((x-3)*(x+3*i)*x^2, (-5, 5), (-5, 5), plot_points=500)
+    g.axes(show=False)
+    g.show()
+
+![polynomial function in cividis colormap](./images/poly_cividis.png)
+
+By default, the colormap is chosen to be the `cividis` colormap. See
+[Optimizing colormaps with consideration for color vision deficiency to enable
+accurate interpretation of scientific
+data](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199239)
+by Nunez, Anderton, and Renslow for more information about this particular
+colormap.
+
+This can handle any matplotlib compatible colormap. For example, if you prefer
+the colormap `ocean`, then you can use
+
+    import matplotlib.cm
+    g = color_complex_plot((x-3)*(x+3*i)*x^2, (-5, 5), (-5, 5),
+                           cmap=matplotlib.cm.ocean,   # <--- new line
+                           tiled=True, plot_points=500)
+    g.axes_color('white')
+    g.axes_label_color('white')
+    g.tick_label_color('white')
+    g.show()
+
+![polynomial function in ocean colormap](./images/poly_ocean_tiled.png)
+
+I don't know why you would choose this colormap. And this colormap shows that
+certain defaults have been chosen that don't quite apply equally.
+
+Not all functions look equally good in all colormaps, but now you can try them
+out.
+
 
 ## License
 
-This is closely modified from sage itself, and thus it is available under GPLv3.
-A copy of this license is included in this repository, and a link is available
-in each source file.
+This is closely modified from sage itself, and thus it is available under
+GPLv3+. A copy of this license is included in this repository, and a link is
+available in each source file.

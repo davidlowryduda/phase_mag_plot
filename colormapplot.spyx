@@ -79,10 +79,10 @@ cdef double mag_and_arg_to_lightness(double r, double arg):
     r_rem = log2(r) % 1
     if r_rem < 0:
         r_rem += 1
-    a_rem = 5 * arg / PI % 1
+    a_rem = (5 * arg / PI) % 1
     if a_rem < 0:
         a_rem += 1
-    return 0.15 - (r_rem)/3. - (a_rem)/3.
+    return 0.15 - (r_rem)/4. - (a_rem)/4.
 
 
 def complex_to_rgb(z_values, tiled=False):
@@ -161,7 +161,7 @@ def adjust_lightness(arr):
     error, but depend somewhat on the colormap.
     """
     h, l, s, mag = arr
-    lightdelta = .2*(mag)
+    lightdelta = .4*(mag)
     l += lightdelta
     ## complex_plot will do this clipping for us
     #if l < 0:
@@ -263,6 +263,7 @@ class ComplexPlot(GraphicPrimitive):
         y0, y1 = float(self.y_range[0]), float(self.y_range[1])
         subplot.imshow(self.rgb_data, origin='lower', extent=(x0, x1, y0, y1),
                        interpolation=options['interpolation'])
+
 
 @options(plot_points=100, interpolation='catrom')
 def color_complex_plot(f, x_range, y_range, tiled=False, cmap=None, **options):
