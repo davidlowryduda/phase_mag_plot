@@ -1,2 +1,12 @@
 # Build binaries for testing
 *.so
+
+# Personal note management
+*.note
+*.todo
+tasks*
+.tasks*
+scripts/
+
+# Generated images
+*.png
