@@ -2,10 +2,21 @@
 
 # phase_mag_plot
 
+## UPDATE - now included in sage ##
+
+In sage, an improved version of this code is now in sage. I rewrote the
+`complex_plot` function to include what I have previously called
+`ccomplex_plot`, `phase_mag_plot`, and `colormap_plot`. It includes everything
+in this repository and slightly more.
+
+Further, it's *much faster*.
+
+## END UPDATE ##
+
 This repository contains some sage/cython code for producing plots with
-logarithmic contouring. At some point in the future, I intend to put this (and
-related) functionality directly into sage, but for now this is where this
-lives.
+logarithmic contouring. At some point <strike>in the future<strike>in the past,
+I intend to put this (and related) functionality directly into sage, but for
+now this is where this lives.
 
 This is designed to work with a relatively up-to-date version of sage running
 python3. I have not tested it with python2.
