@@ -12,7 +12,20 @@ I rewrote the `complex_plot` function to include what I have previously called
 `ccomplex_plot`, `phase_mag_plot`, and `colormap_plot`. It includes everything
 in this repository and slightly more.
 
-Further, it's *much faster*.
+Further, it's *much faster* (thanks to some assistance from other sage
+developers on using more numpy and less direct cython) and has *a few
+additional features*, such as setting how strongly each contour should appear
+and optionally including both phase and argument contours instead of just phase
+contours.
+
+In short, Check it out. I keep this repository and the code as demonstrations
+and relatively readable, clean implementations. But for any use, I suggest
+using the version in sage.
+
+Finally, I note that in principle it would be possible to extract the speed
+improvements and provide a standalone visualizer that doesn't require sage ---
+but I don't do that.
+
 
 ## END UPDATE ##
 
