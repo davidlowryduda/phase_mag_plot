@@ -5,8 +5,8 @@
 ## UPDATE - now included in sage ##
 
 An improved version of this code is now in sage as of sage9.6. See [the release
-tour](https://trac.sagemath.org/wiki/ReleaseTours/sage-9.6#Complexplots) for
-several examples of how they can be used with sage syntax.
+tour](https://github.com/sagemath/sage/wiki/Sage-9.6-Release-Tour#complex-plots)
+for several examples of how they can be used with sage syntax.
 
 I rewrote the `complex_plot` function to include what I have previously called
 `ccomplex_plot`, `phase_mag_plot`, and `colormap_plot`. It includes everything
