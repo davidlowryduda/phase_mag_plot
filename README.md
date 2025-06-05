@@ -30,7 +30,7 @@ but I don't do that.
 ## END UPDATE ##
 
 This repository contains some sage/cython code for producing plots with
-logarithmic contouring. At some point <strike>in the future<strike>in the past,
+logarithmic contouring. At some point <strike>in the future</strike>in the past,
 I intend to put this (and related) functionality directly into sage, but for
 now this is where this lives.
 
