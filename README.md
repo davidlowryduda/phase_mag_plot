@@ -5,7 +5,7 @@
 ## UPDATE - now included in sage ##
 
 An improved version of this code is now in sage as of sage9.6. See [the release
-tour](https://github.com/sagemath/sage/wiki/Sage-9.6-Release-Tour#complex-plots)
+tour](https://github.com/sagemath/sage/releases/tag/9.6)
 for several examples of how they can be used with sage syntax.
 
 I rewrote the `complex_plot` function to include what I have previously called
